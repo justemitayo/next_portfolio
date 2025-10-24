@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* Base layer for global variables and styles */
+@layer base {
+  /* 🌞 Light theme (default) */
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-bg: white;
+    --color-text: black;
+    --color-hover: #fcf4ff;
+    --color-border: transparent;
+    --color-rose: #ebb5c4;
+    --color-back: black;
+    --color-tt: transparent;
+    --border: gray;
+    --borders: rgba(0, 0, 0, 0.306);
+    --bg: url('/footer-bg-color.png');
+    --sd: transparent;
+
+
+    --color-lightHover: #fcf4ff;
+    --color-darkHover: #2a004a;
+    --color-darkTheme: #11001F;
+    
+
+    --font-Outfit: "Outfit", sans-serif;
+    --font-Ovo: "Ovo", serif;
+
+    --shadow: 4px 4px 0 #000;
+    --shadow-white:  4px 4px 0 rgba(255, 255, 255, 0.2);
+
+    --grid-cols-auto: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+    /* 🌙 Dark theme overrides */
+    .dark {
+      --color-bg: #11001F;
+      --color-text: white;
+      --color-hover: #2a004a;
+      --shadow: 4px 4px 0 rgb(255, 255, 255);
+      --color-border: rgba(255, 255, 255, 0.3);
+      --color-rose:var(--color-darkHover);
+      --color-back:transparent;
+      --color-tt: white;
+      --border:white;
+      --borders:var(--color-darkHover);
+      --bg: none;
+      --sd:var(--color-darkHover);
+    }
+
+  /* Apply global text & background */
+  html,
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    transition: background-color 0.25s, color 0.25s;
+  }
+
+  /* Global font */
+  * {
+    font-family: var(--font-Outfit);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
